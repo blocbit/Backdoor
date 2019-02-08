@@ -1,0 +1,61 @@
+
+/* end */
+
+.ui {
+    position: absolute; width: 400px; max-width: 100%; top: 50px; left: 50%; z-index: 999; -webkit-transform: translatex(-50%) translatey(-50%); -moz-transform: translatex(-50%) translatey(-50%); -o-transform: translatex(-50%) translatey(-50%); -ms-transform: translatex(-50%) translatey(-50%); transform: translatex(-50%) translatey(-50%) ;
+    text-align: center; -webkit-perspective: 500px; -moz-perspective: 500px; -o-perspective: 500px; -ms-perspective: 500px; perspective: 500px ; -webkit-transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); -moz-transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); -o-transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); -ms-transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) ; display: none;
+}
+.ui.flipped .panel-front { -webkit-transform: rotateY(180deg) ; -moz-transform: rotateY(180deg) ; -o-transform: rotateY(180deg) ; -ms-transform: rotateY(180deg) ; transform: rotateY(180deg)  }
+.ui.flipped .panel-back { -webkit-transform: rotateY(0deg) ; -moz-transform: rotateY(0deg) ; -o-transform: rotateY(0deg) ; -ms-transform: rotateY(0deg) ; transform: rotateY(0deg)  }
+.ui.hidden .panel-front { -webkit-transform: rotateX(90deg) translateY(-100px); -moz-transform: rotateX(90deg) translateY(-100px); -o-transform: rotateX(90deg) translateY(-100px); -ms-transform: rotateX(90deg) translateY(-100px); transform: rotateX(90deg) translateY(-100px) ; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out ; opacity: 0 }
+.ui.hidden { opacity: 0; pointer-events: none }
+
+.ui-search.hidden .panel { -webkit-transform: rotateX(30deg) translateY(100px); -moz-transform: rotateX(30deg) translateY(100px); -o-transform: rotateX(30deg) translateY(100px); -ms-transform: rotateX(30deg) translateY(100px); transform: rotateX(30deg) translateY(100px) ; opacity: 0 }
+.ui-search .panel { -webkit-transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); -moz-transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); -o-transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); -ms-transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) ; }
+.ui-search .username-status { top: -3px; }
+.ui-search .button-mute { position: absolute; right: 1px; top: 10px; padding: 4px 10px; border-bottom-width: 1px; opacity: 0 ; }
+
+.panel { position:absolute; width: 100%; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; -o-backface-visibility: hidden; -ms-backface-visibility: hidden; backface-visibility: hidden ; -webkit-transition: 0.9s cubic-bezier(0.785, 0.135, 0.15, 0.86); -moz-transition: 0.9s cubic-bezier(0.785, 0.135, 0.15, 0.86); -o-transition: 0.9s cubic-bezier(0.785, 0.135, 0.15, 0.86); -ms-transition: 0.9s cubic-bezier(0.785, 0.135, 0.15, 0.86); transition: 0.9s cubic-bezier(0.785, 0.135, 0.15, 0.86) ; }
+.panel-intro { position: absolute;}
+.panel-intro h1 { border: 2px solid white; padding: 5px; padding-right: 5px; padding-left: 5px; display: inline-block; border: 2px solid white; color: gold }
+.panel-intro .text-gotauth, .panel-intro .text-noauth { height: 0px; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -o-transition: all 0.3s; -ms-transition: all 0.3s; transition: all 0.3s ; overflow: hidden; opacity: 0; pointer-events: none }
+.panel-intro.gotauth .text-gotauth { height: auto; opacity: 1; pointer-events: auto }
+.panel-intro .text-gotauth h3 { opacity: 1 }
+.panel-intro .current-auth {
+    display: inline-block; background-color: #FFDC00; color: rgba(142, 87, 5, 0.8); padding: 4px 8px;
+    font-size: 15px; font-weight: bold; opacity: 1; margin: 0px; margin-left: 30px; width: 270px; text-align: right;
+}
+.panel-intro .current-auth b { color: #8E5705 }
+.panel-intro .please-update { display: none; margin-top: -10px; text-transform: uppercase }
+
+.panel-intro.noauth .text-noauth { height: auto; opacity: 1; pointer-events: auto }
+
+.panel-input { -webkit-transform: rotateY(-180deg) ; -moz-transform: rotateY(-180deg) ; -o-transform: rotateY(-180deg) ; -ms-transform: rotateY(-180deg) ; transform: rotateY(-180deg)  }
+.panel-input h1 { font-size: 67px; letter-spacing: -4px; line-height: 80px; margin-bottom: 40px }
+/*.panel-input h2 { margin-bottom: 40px }*/
+.panel-input h2 .text { margin-left: 20px }
+.minilink { font-size: 13px; font-weight: bold; padding-top: 14px; display: inline-block; border-bottom: 2px solid rgba(255,255,255,0.2); transparent; -webkit-transition: all 0.3s ; -moz-transition: all 0.3s ; -o-transition: all 0.3s ; -ms-transition: all 0.3s ; transition: all 0.3s  }
+.minilink:hover { border-bottom: 2px solid #eee; -webkit-transition: none ; -moz-transition: none ; -o-transition: none ; -ms-transition: none ; transition: none  }
+
+#username {margin-left: 35px;}
+.username-status {
+    display: inline-block; color: #EEE; margin-left: -95px; position: absolute; width: 90px; -webkit-transition: all 0.1s ease-out; -moz-transition: all 0.1s ease-out; -o-transition: all 0.1s ease-out; -ms-transition: all 0.1s ease-out; transition: all 0.1s ease-out ;
+    text-align: right; font-size: 10px; font-weight: bold; vertical-align: middle; line-height: 50px;
+}
+.username-status.error { color: #FF4136 }
+.username-status.ok { color: #2ECC40; }
+.username-status .title { vertical-align: top }
+.username-status .dot { font-size: 30px; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -o-transition: all 0.3s; -ms-transition: all 0.3s; transition: all 0.3s ; margin-left: 4px; display: inline-block; margin-top: 1px }
+
+.search-back {padding-top:0px;}
+.send-direct { -webkit-transform: scale(0.5); -moz-transform: scale(0.5); -o-transform: scale(0.5); -ms-transform: scale(0.5); transform: scale(0.5) ; opacity: 0; -webkit-transition: all 0.3s ; -moz-transition: all 0.3s ; -o-transition: all 0.3s ; -ms-transition: all 0.3s ; transition: all 0.3s  }
+.send-direct.active { -webkit-transform: scale(1); -moz-transform: scale(1); -o-transform: scale(1); -ms-transform: scale(1); transform: scale(1) ; opacity: 1 }
+.send-bitmessage { position: absolute; display: none; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -o-transition: all 0.3s; -ms-transition: all 0.3s; transition: all 0.3s ; -webkit-transform: scale(1.5); -moz-transform: scale(1.5); -o-transform: scale(1.5); -ms-transform: scale(1.5); transform: scale(1.5) ; opacity: 0; width: 100% }
+.send-bitmessage.active { -webkit-transform: scale(1); -moz-transform: scale(1); -o-transform: scale(1); -ms-transform: scale(1); transform: scale(1) ; opacity: 1 }
+
+.status-title { -webkit-transition: all 1s cubic-bezier(0.77, 0, 0.175, 1); -moz-transition: all 1s cubic-bezier(0.77, 0, 0.175, 1); -o-transition: all 1s cubic-bezier(0.77, 0, 0.175, 1); -ms-transition: all 1s cubic-bezier(0.77, 0, 0.175, 1); transition: all 1s cubic-bezier(0.77, 0, 0.175, 1) ; margin-top: 30px; font-weight: bold; position: absolute; width: 100%;  }
+
+.show {
+    display: inline-block !important; color: #EEE; margin-left: -95px;  margin-top: 7px; position: absolute; width: 90px; -webkit-transition: all 0.1s ease-out; -moz-transition: all 0.1s ease-out; -o-transition: all 0.1s ease-out; -ms-transition: all 0.1s ease-out; transition: all 0.1s ease-out ;
+    text-align: right; font-size: 14px; font-weight: bold; vertical-align: middle; line-height: 50px;
+}

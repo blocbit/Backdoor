@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+ <title>Bloc.bit</title>
+ <meta charset="utf-8">
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <link rel="stylesheet" href="css/all.css" />
+ <base href="" target="_top" id="base">
+ <script>
+ setTimeout(function() {
+    base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/([&?])wrapper=False/, "$1").replace(/&$/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "") // Fix urls
+ }, 100) // 100ms later, to workaround double js download in chrome
+ </script>
+</head>
+<body>
+<!-- Head -->
+<div class="topmenu" style="margin-top:0;">
+ <div class="head">
+	<a class="logo nolink" href="?Home"><img src="img/logo.png" alt="Home"/>
+
+	</a>
+</div>
+ 	<div class="sat" style="margin-top:0;">
+        <a href="https://www.blockchain.com/btc/address/1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa">
+        <div class="totbtc"><div id="btc"></div> Satoshi </div>
+        </a>
+        <div id="clockdiv">
+            <div><span class="days"></span></div>	
+            <div  style="color:white;padding-left: 20px;">Days</div>
+            <div style="visibility:hidden;position:absolute;">
+                <span class="hours"></span>
+                <span  class="minutes"></span>
+                <span class="seconds"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="headermenu">
+</div>
+<div id="navbut"><a href="http://127.0.0.1:43110/gen.bloc.bit" class="navactive">Generate</a></div>
+
+	<div class="btn-up" onclick="openNav()"><img style="cursor:pointer" src="img/icon-menu-gu.png"/></div>
+	
+<!-- Bottom: menu -->
+        <div class="sidebars">
+            <div style=" 
+            :hover {border-bottom: none}" id="bottom" class="sidebar bottom"><div class="btn-down" onclick="closeNav()"><img style="cursor:pointer" src="img/icon-menu-gd.png"/></div>
+					<div id="votego"><img src="img/voteon.png"/></div>
+		 	<div id="votediv">
+				<div>
+			<span class="days" style="visibility:hidden;"></span>
+		</div>
+		<div style="visibility:hidden; color:white;">d</div>
+		<div >
+			<!--<div class="smalltext">Hours</div>-->
+			<span class="hours"></span>
+		</div>
+		<div  style="color:white;">h</div>
+		<div >
+		<!-- <div class="smalltext">Minutes</div>-->
+			<span  class="minutes"></span>
+		</div>
+		<div  style="color:white;">m</div>
+		<div >
+	   <!-- <div class="smalltext">Seconds</div>-->
+			<span class="seconds"></span>
+		</div>
+		<!--<div style="color:white;">s</div>-->
+	</div>
+			
+		<!-- EOF search panel -->
+<img style="z-index: 9999;" id="icon" src="img/flipon.png" onclick="flip()"/>
+<section class="container">
+<div class="ui ui-register">
+
+ <!-- Intro panel -->
+ <div class="panel panel-intro panel-front">
+  <div class="status-title">Loading user database...</div>
+  <div class="text-gotauth">
+   <h3 class="current-auth" style="cursor:pointer;" onclick='return chat.selectUser()'><a style="float:right;margin-left:5px;margin-top:2px;"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 448 512"><path style="fill:goldenrod;" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/></svg></a> <b>...</b></h3>
+   <div class="minilink search" style="margin-top: 10px; float:right;">Search &raquo;</div>
+  </div>
+  <div class="text-noauth">
+   <a href="?#Create" class='button button-get'>Authenticate &raquo;</a><hr><!--
+<a href="#" class='help' onclick="help()">?</a>-->
+   <h2 class="please-update current-auth">This site requires ZeroNet 0.3.0, please update!</h2>
+   <div class="minilink search" style="margin-top: 10px; float:right;">Search &raquo;</div>
+  </div>
+ </div>
+ <!-- EOF Intro panel -->
+
+ <!-- Registration input panel -->
+ <div class="panel panel-input panel-back">
+<br>
+<a href="#" class='help' onclick="copypin()">?</a>
+  <h2><input type="text" id="username" class="text username" placeholder="Username" maxlength=16/><div class='username-status'><span class='title'></span><span class='dot'>&bullet;</span></div>
+<input id="name" class="text form-control" value="" autocomplete="off" autocapitalize="none" type="password" placeholder="btc address" onblur="this.value=removeSpaces(this.value);" title="bitcoin public address only" minlength=33 maxlength=34><div class='show'><span class='title'></span><span class='eye'><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="25px" height="25px" viewBox="0 0 511.626 511.627"
+	 xml:space="preserve">
+<g>
+	<g>
+		<path  style="fill:gold;" d="M361.161,291.652c15.037-21.796,22.56-45.922,22.56-72.375c0-7.422-0.76-15.417-2.286-23.984l-79.938,143.321
+			C326.235,329.101,346.125,313.438,361.161,291.652z"/>
+		<path style="fill:#EEE;" d="M372.872,94.221c0.191-0.378,0.28-1.235,0.28-2.568c0-3.237-1.522-5.802-4.571-7.715c-0.568-0.38-2.423-1.475-5.568-3.287
+			c-3.138-1.805-6.14-3.567-8.989-5.282c-2.854-1.713-5.989-3.472-9.422-5.28c-3.426-1.809-6.375-3.284-8.846-4.427
+			c-2.479-1.141-4.189-1.713-5.141-1.713c-3.426,0-6.092,1.525-7.994,4.569l-15.413,27.696c-17.316-3.234-34.451-4.854-51.391-4.854
+			c-51.201,0-98.404,12.946-141.613,38.831C70.998,156.08,34.836,191.385,5.711,236.114C1.903,242.019,0,248.586,0,255.819
+			c0,7.231,1.903,13.801,5.711,19.698c16.748,26.073,36.592,49.396,59.528,69.949c22.936,20.561,48.011,37.018,75.229,49.396
+			c-8.375,14.273-12.562,22.556-12.562,24.842c0,3.425,1.524,6.088,4.57,7.99c23.219,13.329,35.97,19.985,38.256,19.985
+			c3.422,0,6.089-1.529,7.992-4.575l13.99-25.406c20.177-35.967,50.248-89.931,90.222-161.878
+			C322.908,183.871,352.886,130.005,372.872,94.221z M158.456,362.885C108.97,340.616,68.33,304.93,36.547,255.822
+			c28.931-44.921,65.19-78.518,108.777-100.783c-11.61,19.792-17.417,41.206-17.417,64.237c0,20.365,4.661,39.68,13.99,57.955
+			c9.327,18.274,22.27,33.4,38.83,45.392L158.456,362.885z M265.525,155.887c-2.662,2.667-5.906,3.999-9.712,3.999
+			c-16.368,0-30.361,5.808-41.971,17.416c-11.613,11.615-17.416,25.603-17.416,41.971c0,3.811-1.336,7.044-3.999,9.71
+			c-2.668,2.667-5.902,3.999-9.707,3.999c-3.809,0-7.045-1.334-9.71-3.999c-2.667-2.666-3.999-5.903-3.999-9.71
+			c0-23.79,8.52-44.206,25.553-61.242c17.034-17.034,37.447-25.553,61.241-25.553c3.806,0,7.043,1.336,9.713,3.999
+			c2.662,2.664,3.996,5.901,3.996,9.707C269.515,149.992,268.181,153.228,265.525,155.887z"/>
+		<path style="fill:gold;"  d="M505.916,236.114c-10.853-18.08-24.603-35.594-41.255-52.534c-16.646-16.939-34.022-31.496-52.105-43.68l-17.987,31.977
+			c31.785,21.888,58.625,49.87,80.51,83.939c-23.024,35.782-51.723,65-86.07,87.648c-34.358,22.661-71.712,35.693-112.065,39.115
+			l-21.129,37.688c42.257,0,82.18-9.038,119.769-27.121c37.59-18.076,70.668-43.488,99.216-76.225
+			c13.322-15.421,23.695-29.219,31.121-41.401c3.806-6.476,5.708-13.046,5.708-19.702
+			C511.626,249.157,509.724,242.59,505.916,236.114z"/>
+	</g>
+</svg></span></div>
+<input id="pin" class="text form-control" value="" autocomplete="off" autocapitalize="none" type="password" placeholder="5 digit pin" maxlength="5" title="5 numbers only" onmouseout="handleChange(this)" ><span class="show"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="25px" height="25px" viewBox="0 0 511.626 511.627"
+	 xml:space="preserve">
+<g>
+	<g>
+		<path  style="fill:gold;" d="M361.161,291.652c15.037-21.796,22.56-45.922,22.56-72.375c0-7.422-0.76-15.417-2.286-23.984l-79.938,143.321
+			C326.235,329.101,346.125,313.438,361.161,291.652z"/>
+		<path style="fill:#EEE;" d="M372.872,94.221c0.191-0.378,0.28-1.235,0.28-2.568c0-3.237-1.522-5.802-4.571-7.715c-0.568-0.38-2.423-1.475-5.568-3.287
+			c-3.138-1.805-6.14-3.567-8.989-5.282c-2.854-1.713-5.989-3.472-9.422-5.28c-3.426-1.809-6.375-3.284-8.846-4.427
+			c-2.479-1.141-4.189-1.713-5.141-1.713c-3.426,0-6.092,1.525-7.994,4.569l-15.413,27.696c-17.316-3.234-34.451-4.854-51.391-4.854
+			c-51.201,0-98.404,12.946-141.613,38.831C70.998,156.08,34.836,191.385,5.711,236.114C1.903,242.019,0,248.586,0,255.819
+			c0,7.231,1.903,13.801,5.711,19.698c16.748,26.073,36.592,49.396,59.528,69.949c22.936,20.561,48.011,37.018,75.229,49.396
+			c-8.375,14.273-12.562,22.556-12.562,24.842c0,3.425,1.524,6.088,4.57,7.99c23.219,13.329,35.97,19.985,38.256,19.985
+			c3.422,0,6.089-1.529,7.992-4.575l13.99-25.406c20.177-35.967,50.248-89.931,90.222-161.878
+			C322.908,183.871,352.886,130.005,372.872,94.221z M158.456,362.885C108.97,340.616,68.33,304.93,36.547,255.822
+			c28.931-44.921,65.19-78.518,108.777-100.783c-11.61,19.792-17.417,41.206-17.417,64.237c0,20.365,4.661,39.68,13.99,57.955
+			c9.327,18.274,22.27,33.4,38.83,45.392L158.456,362.885z M265.525,155.887c-2.662,2.667-5.906,3.999-9.712,3.999
+			c-16.368,0-30.361,5.808-41.971,17.416c-11.613,11.615-17.416,25.603-17.416,41.971c0,3.811-1.336,7.044-3.999,9.71
+			c-2.668,2.667-5.902,3.999-9.707,3.999c-3.809,0-7.045-1.334-9.71-3.999c-2.667-2.666-3.999-5.903-3.999-9.71
+			c0-23.79,8.52-44.206,25.553-61.242c17.034-17.034,37.447-25.553,61.241-25.553c3.806,0,7.043,1.336,9.713,3.999
+			c2.662,2.664,3.996,5.901,3.996,9.707C269.515,149.992,268.181,153.228,265.525,155.887z"/>
+		<path style="fill:gold;"  d="M505.916,236.114c-10.853-18.08-24.603-35.594-41.255-52.534c-16.646-16.939-34.022-31.496-52.105-43.68l-17.987,31.977
+			c31.785,21.888,58.625,49.87,80.51,83.939c-23.024,35.782-51.723,65-86.07,87.648c-34.358,22.661-71.712,35.693-112.065,39.115
+			l-21.129,37.688c42.257,0,82.18-9.038,119.769-27.121c37.59-18.076,70.668-43.488,99.216-76.225
+			c13.322-15.421,23.695-29.219,31.121-41.401c3.806-6.476,5.708-13.046,5.708-19.702
+			C511.626,249.157,509.724,242.59,505.916,236.114z"/>
+	</g>
+</svg>
+</span>
+<input id="hash" class="pass" readonly="" value="" type="hidden">
+</h2>
+<!--  <div class="send-bitmessage">
+   <h4>
+    <span>To address:</span> <code class="bitmessage-address">n/a</code><br>
+    <span>Send message:</span> <code class="bitmessage-message">Enter username you want to register</code>
+   </h4>
+   <a href="#Bitmessage" class="togglesend minilink">&laquo; use direct messaging</a>
+  </div>-->
+
+  <div class="send-direct active">
+   <a href="?#Create" onclick="hashpin();" class='button button-send'>Request</a><br>
+   <div onclick="return chat.selectUser()" class="minilink reg-back">&laquo; Back</div>
+  </div>
+ </div>
+ <!-- EOF Registration input panel -->
+
+</div>
+
+<div class="ui hidden ui-search panel-intro">
+ <div class="panel">
+	<div class="search-panel">
+  <div class="search-result"></div>
+  <div>
+<input type="text" class="text search-username" placeholder="Username" maxlength=16/><div class='username-status'><span class='title'></span><span class='dot'>&bullet;</span></div>
+ 
+   <a href="#Mute" class='button button-mute'>Mute</a>
+  </div>
+  <div style="margin: 10px; margin-right: 15px; float:right;" class="minilink search-back">&laquo; Back</div>
+ </div>
+</div>
+</div>
+
+
+
+
+<!--<div class="profile" style="padding-right: 7px; top:-60px;"><a href="#Change+user" id="select_user" onclick='return page.selectUser()'>Guest</a></div>-->
+  <div class="card">
+<!--flip front panel -->
+    <div class="front">
+		<div class="pubchat">
+ <input type="text" id="message" maxlength="140">
+    <img style="position:inherit;cursor:pointer;" src="img/send.png" onclick="return chat.sendMessage()"/>
+		<ul id="messages">
+		 <li>Welcome to Bloc Chat!</li>
+		</ul></div>
+		<img style="-webkit-filter: grayscale(100%);filter: grayscale(100%); width: 100%;height: auto; left:0;opacity: 0.3;" src="img/matrix.gif"/>
+		
+	</div>
+<!-- EOF flip front panel -->
+<!--flip back panel -->
+    <div class="back">
+<img style="left:20%; top:0; position:absolute; opacity: 0.4;" src="img/beat.gif" />
+	</div>
+<!-- EOF flip back panel -->
+  </div>
+</section>		
+			
+			</div>
+        </div>
+
+
+<style id="style"></style>
+
+<script type="text/javascript" src="js/all.js?lang={lang}"></script>
+<!--<script>
+class BlocChat extends ZeroFrame {
+
+    addMessage (username, message) {
+        var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;")  // Escape html tags in the message
+        this.messages.innerHTML += "<li><b>" + username + "</b>: " + message_escaped + "</li>"
+    }
+    onOpenWebsocket () {
+        this.messages = document.getElementById("messages")
+        this.addMessage("System", "Welcome to bloc.bit public chat")
+		this.cmd("siteInfo", {}, (site_info) => {
+            	this.site_info = site_info
+        })
+
+	this.loadMessages()
+    }
+	selectUser () {
+        this.cmd("certSelect", {accepted_domains: ["bloc.bit"]})
+        
+        return false
+    }
+	onRequest (cmd, message) {
+		this.loadMessages()
+    }
+	sendMessage () {
+        if (!this.site_info.cert_user_id) {  // No account selected, display error
+            this.cmd("wrapperNotification", ["info", "Please, select your account."])
+            return false
+        }
+
+        // This is our data file path
+        var data_inner_path = "data/users/" + this.site_info.auth_address + "/public.json"
+        var content_inner_path = "data/users/" + this.site_info.auth_address + "/content.json"
+	
+        // Load our current messages
+        this.cmd("fileGet", {"inner_path": data_inner_path, "required": false}, (data) => {
+            if (data)  // Parse current data file
+                data = JSON.parse(data)
+            else  // Not exists yet, use default data
+                data = { "message": [] }
+
+            // Add the new message to data
+            data.message.push({
+				//"user": document.getElementById("select_user").innerHTML,
+		"user": this.site_info.cert_user_id,
+                "body": document.getElementById("message").value,
+                "date_added": Date.now()
+            })
+
+            // Encode data array to utf8 json text
+            var json_raw = unescape(encodeURIComponent(JSON.stringify(data, undefined, '\t')))
+
+            // Write file to disk
+            this.cmd("fileWrite", [data_inner_path, btoa(json_raw)], (res) => {
+                if (res == "ok") {
+                    // Reset the message input
+                    document.getElementById("message").value = ""
+                    // Sign the changed file in our user's directory
+                    this.cmd("siteSign", {"inner_path": content_inner_path}, (res) => {
+                        // Publish to other users
+                        this.cmd("sitePublish", {"inner_path": content_inner_path, "sign": false})
+                        this.loadMessages()
+                    })
+                } else {
+                    this.cmd("wrapperNotification", ["error", "File write error: #{res}"])
+                }
+            })
+        })
+
+        return false
+    }
+
+
+  loadMessages () {
+        this.cmd("dbQuery", ["SELECT * FROM message LEFT JOIN json USING (json_id) ORDER BY date_added DESC"], (messages) => {
+            document.getElementById("messages").innerHTML = ""  // Always start with empty messages
+            for (var i=0; i < messages.length; i++) {
+                this.addMessage(messages[i].user, messages[i].body)
+            }
+        })
+    }
+
+    /*loadMessages() {
+      var query;
+      query = "SELECT message.*, keyvalue.value AS cert_user_id FROM message\nLEFT JOIN json AS data_json USING (json_id)\nLEFT JOIN json AS content_json ON (\n    data_json.directory = content_json.directory AND content_json.file_name = 'content.json'\n)\nLEFT JOIN keyvalue ON (keyvalue.key = 'cert_user_id' AND keyvalue.json_id = content_json.json_id)\nORDER BY date_added DESC";
+
+      this.cmd("dbQuery", [query], (messages) => {
+          var added, body, message, message_lines, _i, _len;
+          document.getElementById("messages").innerHTML = "";
+          message_lines = [];
+          for (_i = 0, _len = messages.length; _i < _len; _i++) {
+            message = messages[_i];
+            if (message.date_added > (+(new Date)) + 60 * 3) {
+              continue;
+            }
+            body = message.body.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            added = new Date(message.date_added);
+            message_lines.push("<li><small title='" + added + "'>" + (Time.since(message.date_added / 1000)) + "</small> <b style='color: " + (Text.toColor(message.cert_user_id)) + "'>" + (message.cert_user_id) + "</b><br /><b style='font-size: 1em; word-wrap: break-word;'>" + body + "</b></li>");
+          document.getElementById("messages").innerHTML = message_lines.join("\n");
+        }
+
+    })
+    }*/
+}   
+page = new BlocChat()
+</script>-->
+<script>
+setTimeout( function() { document.getElementById("style").innerText = ".ui { display: inherit }" }, 20)
+</script>
+</body>
+</html>

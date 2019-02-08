@@ -1,0 +1,80 @@
+/*
+.popup-overlay{
+  /*Hides pop-up when there is no "active" class*
+    visibility: hidden;
+    position: absolute;
+    background: #fdfdfd;
+    border: 3px solid #666666;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    z-index: 9999;
+    top: 10%;  
+	border-radius: 5px;
+	
+}
+.popup-overlay.active{
+  /*displays pop-up when "active" class is present*
+  visibility:visible;
+  text-align:center;
+}
+
+.popup-content {
+  /*Hides pop-up content when there is no "active" class *
+ visibility:hidden;
+}
+
+.popup-content.active {
+  /*Shows pop-up content when "active" class is present *
+  visibility:visible;
+}
+*/
+
+.items a {
+	display:block;
+	/*cursor:pointer;*/
+  color:#000;
+  text-decoration:none;
+}
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 99; /* Sit on top */
+	left: 0;
+	right:0;
+	top: 0;
+	bottom:0;
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+.modal-content {
+	background-color: #fefefe;
+    position: fixed;
+    top: 15%;
+    bottom: 15%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    display: none;
+    box-sizing: border-box;
+    z-index: 100;
+    overflow: auto;
+}
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+cursor:pointer;
+  
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
