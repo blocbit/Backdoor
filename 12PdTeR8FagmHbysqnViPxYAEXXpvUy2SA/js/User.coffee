@@ -10,7 +10,8 @@ class User extends Class
 
 	updateMyInfo: (cb = null) ->
 		@log "Updating user info...", @my_address
-		@updateMyVotes(cb)	
+		@updateMyVotes(cb)
+		@getDayZero()	
 			
 
 	# Load my votes
@@ -27,7 +28,13 @@ class User extends Class
 		  		else
 		  			@my_comment_votes[vote.uri] = true
 			if cb then cb()
-
+		
+	getDayZero: () ->	
+		oneDay = 24*60*60*1000
+		today = new Date()
+		zeroDate = 1577836799
+		zero = Math.round(Math.abs((today.getTime() - zeroDate)/(oneDay)))
+		return zero
 
 	certselectButtons: ->
 		$(".certselect").on "click", =>
@@ -85,7 +92,7 @@ class User extends Class
 			if data
 				data = JSON.parse(data)
 			else # Default data
-				data = {"next_topic_id": 1, "topic": [], "topic_vote": {}, "next_comment_id": 1, "comment": {}, "comment_vote": {}, "vote_window": 1, "concept_created": 0}
+				data = {"next_topic_id": 1, "topic": [], "topic_vote": {}, "next_comment_id": 1, "comment": {}, "comment_vote": {}, "vote_window": 0 }
 			cb(data)
 
 

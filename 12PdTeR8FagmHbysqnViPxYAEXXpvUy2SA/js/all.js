@@ -2291,7 +2291,6 @@ $("h1").removeAttr("style");
         $(".topics-title").html("Bloc.bit");
       }
       this.loadTopics("noanim");
-      this.voteWindow();
       $(".topic-new-link").on("click", (function(_this) {
         return function() {
           if (Page.site_info.address === "904580948gfjgflkjkfljdd") {
@@ -2466,14 +2465,6 @@ $("h1").removeAttr("style");
           return false;
         };
       })(this));
-    };
-
-    TopicList.prototype.voteWindow = function() {
-      User.getData((function(_this) {
-        return function(data) {};
-      })(this));
-      console.log("Hello, " + vote_window + "!");
-      return false;
     };
 
     TopicList.prototype.applyTopicData = function(elem, topic, type) {
@@ -2663,13 +2654,14 @@ $("h1").removeAttr("style");
       inner_path = "data/users/" + User.my_address + "/data.json";
       User.getData((function(_this) {
         return function(data) {
-          var ref, topic_uri;
+          var ref, topic_uri, zero;
                     if ((ref = data.topic_vote) != null) {
             ref;
           } else {
             data.topic_vote = {};
           };
           topic_uri = elem.parents(".topic").data("topic_uri");
+          zero = User.getDayZero();
           if (elem.hasClass("owned")) {
             elem.removeClass("active");
             Page.cmd("wrapperNotification", ["info", "You may not vote for your own concept!"]);
@@ -2683,13 +2675,13 @@ $("h1").removeAttr("style");
             return false;
           } else if (elem.hasClass("active")) {
             data.topic_vote[topic_uri] = 1;
-            data.vote_window['state'] = 0;
+            data.vote_window = +zero;
             $(".score").not(".active").addClass('voted');
             $("#votego").css("visibility", "hidden");
             $("#votediv").css("visibility", "visible");
           } else {
             delete data.topic_vote[topic_uri];
-            data.vote_window['state'] = 1;
+            data.vote_window = +zero + 0.1;
             $("#votediv").css("visibility", "hidden");
             $("#votego").css("visibility", "visible");
           }
@@ -3039,7 +3031,8 @@ $("h1").removeAttr("style");
         cb = null;
       }
       this.log("Updating user info...", this.my_address);
-      return this.updateMyVotes(cb);
+      this.updateMyVotes(cb);
+      return this.getDayZero();
     };
 
     User.prototype.updateMyVotes = function(cb) {
@@ -3066,6 +3059,15 @@ $("h1").removeAttr("style");
       if (cb) {
         return cb();
       }
+    };
+
+    User.prototype.getDayZero = function() {
+      var oneDay, today, zero, zeroDate;
+      oneDay = 24 * 60 * 60 * 1000;
+      today = new Date();
+      zeroDate = 1577836799;
+      zero = Math.round(Math.abs((today.getTime() - zeroDate) / oneDay));
+      return zero;
     };
 
     User.prototype.certselectButtons = function() {
@@ -3144,8 +3146,7 @@ $("h1").removeAttr("style");
               "next_comment_id": 1,
               "comment": {},
               "comment_vote": {},
-              "vote_window": 1,
-              "concept_created": 0
+              "vote_window": 0
             };
           }
           return cb(data);

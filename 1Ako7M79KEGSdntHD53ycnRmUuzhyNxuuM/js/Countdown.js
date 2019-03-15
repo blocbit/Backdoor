@@ -5,8 +5,6 @@ if (millisTill10 < 0) {
 }
 setTimeout(function(){
 /*alert("It's time to vote!")*/
-$('#votediv').css({'visibility':'hidden'});
-$('#votego').css({'visibility':'visible'})
 }, millisTill10);
 
 

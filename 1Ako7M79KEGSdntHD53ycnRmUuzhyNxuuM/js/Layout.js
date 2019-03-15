@@ -44,7 +44,7 @@ function openNav() {
 }
 	
 function closeNav() {
-	$("#bottom").css("bottom", "-310px");
+	$("#bottom").css("bottom", "-300px");
 }
 	
 function validateForm() {

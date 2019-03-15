@@ -18,8 +18,9 @@ pre code {
 }
 
 a { text-decoration: none; color: goldenrod }
-a:hover { border-bottom: 0.1em solid gold }
-a:active { border-bottom: 0.1em solid darkgoldenrod }
+/*a:hover { border-bottom: 0.1em solid gold }
+a:active { border-bottom: 0.1em solid darkgoldenrod }*/
+a:hover { color:gold }
 a.nolink { border-bottom: none }
 a.nolink:hover { border-bottom: none }
 a.nolink:active { border-bottom: none }
@@ -71,7 +72,7 @@ input.text:focus, textarea:focus { border-color: #5FC0EA; outline: none; backgro
 	padding: 5px 10px; background-color: #DDE0E0; border-bottom: 2px solid #999998; background-position: left center;
 	border-radius: 2px ; text-decoration: none; transition: all 0.5s ease-out ; color: #333; display: inline-block
 }
-.button:hover, .button:active { background-color: #FFF400; border-color: white; border-bottom: 2px solid #4D4D4C; transition: none ; color: inherit }
+.button:hover, .button:active { background-color: #FFF400; border-color: white; border-bottom: 2px solid #4D4D4C; transition: none ; color: darkgoldenrod; }
 .button:active { transform: translateY(1px) }
 
 /*.button-delete { background-color: #e74c3c; border-bottom-color: #A83F34; color: white }*/
@@ -84,8 +85,26 @@ input.text:focus, textarea:focus { border-color: #5FC0EA; outline: none; backgro
 
 .button.loading {
 	color: rgba(0,0,0,0) !important; background: #999 url(../img/loading.gif) no-repeat center center;
-	transition: all 0.5s ease-out ; pointer-events: none; border-bottom: 2px solid #666
+	transition: all 0.5s ease-out ; pointer-events: none; border-bottom: 2px solid #666;
 }
+.button.disabled { color: #DDD; background-color: #999;  pointer-events: none; border-bottom: 2px solid #666 }
+
+/* Button2 */
+.button {
+	background-color: #FFDC00; color: black; font-size: 20px; display: inline-block; background-position: left center;
+	-webkit-border-radius: 2px; -moz-border-radius: 2px; -o-border-radius: 2px; -ms-border-radius: 2px; border-radius: 2px ; border-bottom: 2px solid #E8BE29; transition: all 0.5s ease-out
+}
+.button-get {width: 100%;height: 10px;font-size: 20px;padding-top: 3px;z-index: 2;padding-bottom: 15px; position: absolute; left: -15px;}
+.button:hover { border-color: white; border-bottom: 2px solid #BD960C; -webkit-transition: none; -moz-transition: none; -o-transition: none; -ms-transition: none; transition: none ; background-color: #FDEB07; color:darkgoldenrod; }
+/*.button:active { position: relative; top: 1px }*/
+.button.loading {
+	color: rgba(0,0,0,0); background: #999 url(../img/loading.gif) no-repeat center center;
+	-webkit-transition: all 0.5s ease-out ; -moz-transition: all 0.5s ease-out ; -o-transition: all 0.5s ease-out ; -ms-transition: all 0.5s ease-out ; transition: all 0.5s ease-out  ; pointer-events: none; border-bottom: 2px solid #666
+}
+
+
+
+
 
 .topmenu { font-size: 14px;
     margin-right: -10px;
@@ -113,7 +132,7 @@ input.text:focus, textarea:focus { border-color: #5FC0EA; outline: none; backgro
     /* background-color: black; */
     /* display: inline-block; */
     padding-left: 5px;
-    /* padding-top: 12px; 
+    /* padding-bottom: 12px; 
     margin-left: -10px;
     /* color: rgba(255,255,255,1); */
     /* font-size: 20px; */

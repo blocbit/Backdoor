@@ -26,7 +26,6 @@ class TopicList extends Class
 			$(".topics-title").html("Bloc.bit")
 
 		@loadTopics("noanim")
-		@voteWindow()
 	
 		# Show create new topic form
 		$(".topic-new-link").on "click", =>
@@ -269,27 +268,6 @@ class TopicList extends Class
 			menu.show()
 			return false
 			
-	
-	voteWindow: () ->		
-				
-			User.getData (data) =>
-			
-			console.log "Hello, #{vote_window}!"
-			#inner_path = "data/users/#{Page.site_info.auth_address}/data.json"			
-			#if data.vote_window = 1
-			#@voter_window = 1
-			#else
-			#@voter_window = 0
-			
-			#if @voter_window == 0	
-			#	$("#votego").css("visibility", "visible")
-			#	#$("#votediv").css("visibility", "hidden")		
-			#else if @voter_window == 1
-				#$("#votego").css("visibility", "hidden")
-			#	$("#votediv").css("visibility", "visible")
-				
-			return false
-
 	applyTopicData: (elem, topic, type="list") ->
 		title_hash = Text.toUrl(topic.title)
 		topic_uri = topic.row_topic_uri
@@ -485,6 +463,7 @@ class TopicList extends Class
 		User.getData (data) =>
 			data.topic_vote ?= {}
 			topic_uri = elem.parents(".topic").data("topic_uri")
+			zero = User.getDayZero()
 									
 			if elem.hasClass("owned")
 				elem.removeClass("active")
@@ -499,7 +478,7 @@ class TopicList extends Class
 				return false
 			else if elem.hasClass("active")
 				data.topic_vote[topic_uri] = 1
-				data.vote_window['state'] = 0
+				data.vote_window = +(zero)
 				#data.vote_window = {"state": 0,"added": (+new Date)}
 				$(".score").not(".active").addClass('voted');
 				$("#votego").css("visibility", "hidden")
@@ -507,7 +486,7 @@ class TopicList extends Class
 				#elem.removeClass("voted")				
 			else
 				delete data.topic_vote[topic_uri]
-				data.vote_window['state'] = 1	
+				data.vote_window = +(zero) + 0.1
 				$("#votediv").css("visibility", "hidden")
 				$("#votego").css("visibility", "visible")				
 			User.publishData data, (res) =>

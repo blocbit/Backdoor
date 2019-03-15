@@ -15,8 +15,5 @@
 	"next_comment_id": 1,
 	"comment": {},
 	"comment_vote": {},
-	"vote_window": {
-		"state": 1
-	},
-	"concept_created": 1
+	"vote_window": 305.1
 }

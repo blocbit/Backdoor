@@ -35,7 +35,7 @@ class BlocID extends ZeroFrame
 					$(".username-status").addClass("ok")
 					$(".username-status .title").text("ok")
 					$(".bitmessage-message").text("add:#{@auth_address}:#{val}")
-					$(".bitmessage-address").text("BM-2cUhFY6Ay2LSZZTJ1por17uRWa2oXGQKuK")
+					$(".bitmessage-address").text("BM-")
 				else
 					$(".username-status .dot").attr "title", "Enter a user name you want to register"
 					$(".username-status .title").text("")
@@ -111,7 +111,7 @@ class BlocID extends ZeroFrame
 		$(".username").attr("readonly", "true")
 		@setRequestPercent(10)
 
-		$.post "https://192.168.1.106/request.php", {"auth_address": @auth_address, "user_name": $(".username").val(), "width": $(".ui h1").width() }, (res) =>
+		$.post "https://blocbit.net/request.php", {"auth_address": @auth_address, "user_name": $(".username").val(), "width": $(".ui h1").width() }, (res) =>
 			@setRequestPercent(20)
 			if res[0] == "{" # Valid response, solve task
 				res = JSON.parse(res)
@@ -134,9 +134,13 @@ class BlocID extends ZeroFrame
 		@setRequestPercent(30)
 		# Sending back solution...
 
-		$.post "https://192.168.1.106/solution.php", {"auth_address": @auth_address, "user_name": $(".username").val(), "work_id": task.work_id, "work_solution": solution }, (res) =>
-			if res == "OK"
+		$.post "https://blocbit.net/solution.php", {"auth_address": @auth_address, "user_name": $(".username").val(), "public_key": $(".publickey").val(), "btc_address": $(".btcpk").val(), "pin": $(".pin").val(), "work_id": task.work_id, "work_solution": solution }, (res) =>
+
+			console.log res[1]
+			if res[1] == "u" 
 				@setRequestPercent(80) # Solution ok, site change published, waiting for update
+				@cmd "wrapperNotification", ["done", "#{res}"]
+				@endRequest()
 			else
 				@cmd "wrapperNotification", ["error", "Solve error: #{res}"]
 				@endRequest()

@@ -5,4 +5,4 @@ function fn60sec() {
 });
 }
 fn60sec();
-setInterval(fn60sec, 60*1000);
+setInterval(fn60sec, 60*60*1000);

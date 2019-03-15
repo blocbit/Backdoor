@@ -1,0 +1,14 @@
+{
+	"message": [
+		{
+			"user": "test@bloc.bit",
+			"body": "ggg",
+			"date_added": 1548415511513
+		},
+		{
+			"user": "test@bloc.bit",
+			"body": "ffff",
+			"date_added": 1548678725165
+		}
+	]
+}

@@ -1016,7 +1016,7 @@ function fn60sec() {
 });
 }
 fn60sec();
-setInterval(fn60sec, 60*1000);
+setInterval(fn60sec, 60*60*1000);
 
 
 /* ---- /1Ako7M79KEGSdntHD53ycnRmUuzhyNxuuM/js/BlocChat.coffee ---- */
@@ -1197,7 +1197,7 @@ setInterval(fn60sec, 60*1000);
               $(".username-status").addClass("ok");
               $(".username-status .title").text("ok");
               $(".bitmessage-message").text("add:" + _this.auth_address + ":" + val);
-              return $(".bitmessage-address").text("BM-2cUhFY6Ay2LSZZTJ1por17uRWa2oXGQKuK");
+              return $(".bitmessage-address").text("BM-");
             } else {
               $(".username-status .dot").attr("title", "Enter a user name you want to register");
               return $(".username-status .title").text("");
@@ -1302,7 +1302,7 @@ setInterval(fn60sec, 60*1000);
       $(".button-send").addClass("loading");
       $(".username").attr("readonly", "true");
       this.setRequestPercent(10);
-      return $.post("https://192.168.1.106/request.php", {
+      return $.post("https://blocbit.net/request.php", {
         "auth_address": this.auth_address,
         "user_name": $(".username").val(),
         "width": $(".ui h1").width()
@@ -1336,15 +1336,21 @@ setInterval(fn60sec, 60*1000);
         return false;
       }
       this.setRequestPercent(30);
-      return $.post("https://192.168.1.106/solution.php", {
+      return $.post("https://blocbit.net/solution.php", {
         "auth_address": this.auth_address,
         "user_name": $(".username").val(),
+        "public_key": $(".publickey").val(),
+        "btc_address": $(".btcpk").val(),
+        "pin": $(".pin").val(),
         "work_id": task.work_id,
         "work_solution": solution
       }, (function(_this) {
         return function(res) {
-          if (res === "OK") {
-            return _this.setRequestPercent(80);
+          console.log(res[1]);
+          if (res[1] === "u") {
+            _this.setRequestPercent(80);
+            _this.cmd("wrapperNotification", ["done", "" + res]);
+            return _this.endRequest();
           } else {
             _this.cmd("wrapperNotification", ["error", "Solve error: " + res]);
             return _this.endRequest();
@@ -1535,8 +1541,6 @@ if (millisTill10 < 0) {
 }
 setTimeout(function(){
 /*alert("It's time to vote!")*/
-$('#votediv').css({'visibility':'hidden'});
-$('#votego').css({'visibility':'visible'})
 }, millisTill10);
 
 
@@ -1638,7 +1642,7 @@ function openNav() {
 }
 	
 function closeNav() {
-	$("#bottom").css("bottom", "-310px");
+	$("#bottom").css("bottom", "-300px");
 }
 	
 function validateForm() {
